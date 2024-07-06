@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>GPG</title>
+        <meta charset="utf-8"/>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel='stylesheet' type='text/css' href='style.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+<body>
+    <main>
+    
+      <ul id="tagcloud">
+    <li><a href="index.html">About & Contact</a></li>
+    <li><a href="https://drive.filen.io/f/1eac1d77-b724-44f4-9a54-57c183b9c0dc#r3k9qJShHpZeO6SVYI83hl18RUxgWXHq" target="_blank">Gallery</a></li>   
+    <li><a href="blog.html">Blog</a></li>
+    </ul>
+	
+	
+	
+	<h1>What is GPG?</h1>
+
+<p>It is a way to make sure the person you are talking to is indeed the person he claims to be. </p>
+
+	<h1>How to use it?</h1>
+<p>In this tutorial I will focus on how to do this on Android. If you are using GNU/Linux, there is a high chance you already know how to do it. Or just check out some of the tutorials.</p>
+
+<h2>Steps</h2>
+<ol>
+<li>Download the <a href="https://www.openkeychain.org/">OpenKeyChain</a> app for Android.</li>
+<li><code>Open it > Three dots in the top right corner > Manage my keys > Create my key </code></li>
+<li>Enter what it asks you to (Doesn't have to be your real information. GPG doesn't have to be associated with your real name or your email to work)</li>
+<li><code>Press "Create key"</code></li>
+
+</ol>
+<h2>What now?</h2>
+<p>What you have created is called a private key. It can only be used for decrypting messages people send you. Don't ever show it to anyone and keep it safe. Think of it as your digital ID.</p>
+<p>Alongside this key, a second key has been generated. Your public key. It didn't make any sense to me at first either, so I will try my best to explain it.</p>
+
+   <hr></hr>
+<p>You can give your public key to anyone <code>(Click on your key inside of OpenKeyChain > Press the share button (three dots connected by lines)</code></p>
+<p>You can literally give this to everyone in the world. They will be able to encrypt messages meant for you. Once they encrypt the message, they can also send it to anyone in the world, and only you will be able to read it.</p>
+<li><strong>Okay but how am I supposed to send messages back to the person?</strong></li>
+<p>Simply. They need to send you their own public key, by attaching it in the message they sent you for example. Once again, anyone can see their public key, as it can only be used for <strong><i>en</i></strong>crypting messages meant for them.</p>
+<p>In OpenKeyChain you can easily import other people's public keys by pressing the round + key, and selecting the .asc or .gpg file people send you. Both will work.</p>
+<hr></hr>
+<p>I hope this made at least some sense. With this technology you can essentially talk privately on any platform supporting pasting text or sending files. (For example discord limits the number of characters per message for some reason, in which case you can just copy your message, paste it into a text editor, change the extension to .asc)</p>
+
+<h1>Practical example</h1>
+<p>Let's say a friend has lost his online account for whatever reason, and a new account with a simillar name messages you. If both of you have each other's public keys, it's very easy!</p>
+</ol>
+<li><code>Tap onto your contact's name inside of OpenKeyChain > press the chat bubble icon > type in anything > press share/copy > send it to the contact claiming to be your friend</code></li>
+<li>If he is indeed who he claims he is, and hasn't list the key, he will be able to read the message. It doesn't matter that the platform is discord. No one else other than your friend can read it anyways. So ask him what's 39 plus 83 or something.</li>
+</ol>
+
+<h1>Summary</h1>
+<p>GPG is mainly used in E-mail communication, but it is such a powerful too that it can be used for sending messages over any medium. It can even encrypt files! But that's not in the scope of this tutorial. The main point I want to make is that using GPG is a really good way to verify who people you talk to actually are.</p>
+  <h2>You can download my GPG key <a href="tsugu.asc">here</a></h2>
+   </main>
+</body>
+</html>

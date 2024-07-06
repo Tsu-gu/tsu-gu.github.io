@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+            <title>Ditch online password managers</title>
+                    <meta charset="utf-8"/>
+                            <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+                                    <link rel='stylesheet' type='text/css' href='style.css'>
+                                            <meta name="viewport" content="width=device-width, initial-scale=1">
+                                                </head>
+
+                                                <body>
+                                                    <main>
+                                                        
+                                                              <ul id="tagcloud">
+                                                                  <li><a href="index.html">About & Contact</a></li>
+                                                                      <li><a href="https://drive.filen.io/f/1eac1d77-b724-44f4-9a54-57c183b9c0dc#r3k9qJShHpZeO6SVYI83hl18RUxgWXHq" target="_blank">Gallery</a></li>
+                                                                        
+                                                                            <li><a href="blog.html">Blog</a></li>
+                                                                                </ul>
+                                                                                <h1>How to ditch a cloud password manager and keep the sync</h1>
+
+                                                                                <p>Bitwarden is a great service, but if you want maximum security for your passwords, this tutorial is exactly what you've been looking for.</p>
+                                                                                <p>The first thing we will need to do is...</p>
+                                                                                <h2>Convert a Bitwarden database into a keepass one</h2>
+                                                                                	
+                                                                                    <ol>
+                                                                                    	<li>Download <a href="https://keepassxc.org">KeepassXC</a> onto your computer, and  <a href="https://keepassdx.com">KeepassDX</a> on your phone.</li>
+                                                                                        <li>Go to  <a href="https://bitwarden.com">Bitwarden's website</a>, and log into your account. </li>
+                                                                                        <li>Go to <code>Tools > export to csv </code></li>
+                                                                                        <img src="bitwarden-1.png" 
+                                                                                             width="auto"
+                                                                                                  height="auto">
+
+
+                                                                                                  <li>Open KeepassXC on your PC, and load the .csv file</li>
+                                                                                                  <img src="keepass-1.png" 
+                                                                                                       width="auto"
+                                                                                                            height="auto">
+                                                                                                                 
+                                                                                                                 <li>Rearange the collums so they correspond to the actual data, as shown in the image.</li>
+                                                                                                                 <img src="keepass-2.png" 
+                                                                                                                      width="auto"
+                                                                                                                           height="auto">
+                                                                                                                           <li>Click next, and save the database. </li>
+
+                                                                                                                           </ol>
+                                                                                                                           <p>If you have never used any password manager before, all you have to do is create a new database. No conversion needed, obviously.</p>
+
+
+
+
+
+                                                                                                                           <h2>Sync it with all of your devices</h2>
+                                                                                                                           <p>Congratulations, your password database is now stored locally. But as I've promised, we are going to sync it.</p>
+                                                                                                                           <ol>
+                                                                                                                           <li>Download  <a href="https://syncthing.net">Syncthing</a>, a peer to peer syncing tool. (This means that no data ever leaves your devices. They only share data between each other.)</li>	
+                                                                                                                           <li>Launch it and connect your devices. This is a really simple thing to do, as it just involves scanning QR codes.</li>
+                                                                                                                           <p>On a phone:</p>
+                                                                                                                           <img src="sync-android-1.jpg" 
+                                                                                                                                width="auto"
+                                                                                                                                     height="auto">
+
+                                                                                                                                     On PC: 
+                                                                                                                                     <img src="sync-PC.jpg" 
+                                                                                                                                          width="auto"
+                                                                                                                                               height="auto">
+
+                                                                                                                                               <li>Select which folders to sync, and which devices you want to sync it with. Afterwards a notification will popup on your phone, saying "Device X wants to share folder Y".</li>
+                                                                                                                                               <img src="add-folder.png" 
+                                                                                                                                                    width="auto"
+                                                                                                                                                         height="auto">
+                                                                                                                                                              <hr></hr>
+                                                                                                                                                                   <img src="share-folder.png" 
+                                                                                                                                                                        width="auto"
+                                                                                                                                                                             height="auto">
+                                                                                                                                                                                  <hr></hr>
+                                                                                                                                                                                       
+                                                                                                                                                                                            <p>As you can see, the same file is synced between my phone and a PC. The name of the directory is different, but it still syncs the same files (Syncthing will ask you where do you want to keep the folder, and you can give it any name). Any change made to the directory on one device will be translated to all of them.</p>
+                                                                                                                                                                                            <img src="sync-folders.png" 
+                                                                                                                                                                                                 width="auto"
+                                                                                                                                                                                                      height="auto">
+
+                                                                                                                                                                                                      <li>Open keepass on your other devices, and open an existing database contained in the synced directory.</li>
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        <img src="keepass-3.jpg" 
+                                                                                                                                                                                                             width="auto"
+                                                                                                                                                                                                                  height="auto">
+                                                                                                                                                                                                                    
+                                                                                                                                                                                                                    </ol>
+                                                                                                                                                                                                                    <p>Done. Now each time syncthing is active, your password database will be synced with all of your devices you've added into syncthing. </p>
+
+                                                                                                                                                                                                                    <h2>Summary</h2>
+                                                                                                                                                                                                                    <p>You save a new password on your phone. KeepassDX saves it to the database contained in a specified folder.</p>
+                                                                                                                                                                                                                    <p>Syncthing notices it, and sends the changed file to all of your devices.</p>
+                                                                                                                                                                                                                    <p>Keepass on those devices will read the updated database, containing the new password.</p>
+                                                                                                                                                                                                                    <p>Yes. It's that simple.</p>
+
+                                                                                                                                                                                                                       </main>
+                                                                                                                                                                                                                       </body>
+                                                                                                                                                                                                                       </html>
+                                                                                                                                                                                                                       

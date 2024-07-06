@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Ubuntu setup guide</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <main>
+    <ul id="tagcloud">
+      <li><a href="index.html">About & Contact</a></li>
+      <li><a href="https://drive.filen.io/f/1eac1d77-b724-44f4-9a54-57c183b9c0dc#r3k9qJShHpZeO6SVYI83hl18RUxgWXHq" target="_blank">Gallery</a></li>
+      <li><a href="blog.html" target="_blank">Blog</a></li>
+    </ul>
+
+    <h1>My spin on what to do after installing Ubuntu</h1>
+    <img src="Ubuntu_files/Ubuntu.png" width="100" height="100">
+<p>In this guide I will show you actual tips for making your experience better, not just installing random extensions to make your system look prettier. I'm the type of person that rarely changes his wallpaper even.</p>
+<h1>Table of contents</h1>
+
+<ul>
+	<li><a href="#rightclick1">Enable right click > new document</a></li>
+	<li><a href="#rightclick2">Enable right click > delete permanently/create a link</a></li>
+  <li><a href="#minimize">Clicking an active app will minimize/maximize it, or show you previews of its active windows</a></li>
+	<li><a href="#middleclick">Make middle clicking close an active app</a></li>
+  <li><a href="#clipboard">Install a clipboard history extension</a></li>
+	<li><a href="#gdebi">Install GDebi, Gnome Extensions and Dconf</a></li>
+  <li><a href="#flatpak">Install flatpak</a></li>
+  <li><a href="#tiling">Tweak the tiling extension in Ubuntu 24.04</a></li>
+  <li><a href="#shortcuts">Add your own shortcuts</a></li>
+  <li><a href="#log">Disable logging</a></li>
+  <li><a href="#appimage">Fix AppImages</a></li>
+
+
+
+  </ul>
+
+    <h2 id="rightclick1">Enable right click > new document</h2>
+    <img src="Ubuntu_files/gnome-tip-1.png" width="auto" height="auto">
+    <p>When you create a new text file in this folder, it will appear in your right click menu.</p>
+    <img src="Ubuntu_files/gnome-tip-2.png" width="auto" height="auto">
+
+    <h2 id="rightclick2">Enable right click > delete permanently/create a link</h2>
+
+    <img src="Ubuntu_files/add-link-1.png" width="auto" height="auto">
+    <img src="Ubuntu_files/add-link-2.png" width="auto" height="auto">
+    <img src="Ubuntu_files/add-link-3.png" width="auto" height="auto">
+    <img src="Ubuntu_files/add-link-4.png" width="auto" height="auto">
+
+
+
+
+    <h2 id="minimize">Clicking an active app will minimize/maximize it, or show you previews of its active windows.</h2>
+
+    <p>Press Ctrl + Alt + T and type <code>gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'</code> into the terminal.</p>
+
+   
+   
+    <h2 id="middleclick">Make middle clicking close an active app.</h2>
+    <p>Press Ctrl + Alt + T again and type <code>gsettings set org.gnome.shell.extensions.dash-to-dock middle-click-action 'quit'</code> into the terminal.</p>
+    <video controls>
+      <source src="https://i.imgur.com/scjCXk2.mp4" type="video/mp4">
+    </video>
+
+    
+    
+  <h2 id="clipboard">Install a clipboard history extension</h2>
+  <p style="overflow-wrap:break-word;">Open Firefox and navigate to <a href="https://extensions.gnome.org/extension/4839/clipboard-history/">https://extensions.gnome.org/extension/4839/clipboard-history/</a></p>
+  
+  <p>Just follow the instructions on the site and install it.</p>
+
+<p>I recommend changing the width of the clipboard extension, and to set a shortcut for launching it.</p>
+<img src="Ubuntu_files/clipboard-extension-1.png" width="auto" height="auto">
+<br> 
+<img src="Ubuntu_files/clipboard-extension-2.png" width="auto" height="auto">
+
+
+You can access the settings of the extension right here
+<img src="Ubuntu_files/clipboard-extension-3.png" width="auto" height="auto">
+
+
+
+<h2 id="gdebi">Install GDebi, Gnome Extensions and Dconf</h2>
+<p>GDebi will make it so you can just double click on a .deb and install it, Gnome Extensions helps you manage your extensions, and Dconf can be used if you want to dig deeper into your extensions' settings.</p>
+<p><code>sudo apt install gdebi gnome-extensions-app dconf-editor</code></p>
+
+<img src="Ubuntu_files/dconf.png" width="auto" height="auto">
+
+<img src="Ubuntu_files/gnome-extensions.png" width="auto" height="auto">
+
+<h2 id="flatpak">Install flatpak</h2>
+<p>Snaps are fine, but let's be honest, most developers focus on flatpak and actually update the apps published on flathub. So let's add it into our system.</p>
+<p><code>sudo apt install flatpak </code></p>
+<p style="overflow-wrap:break-word;"><code>flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</code></p>
+<p>Now you can install any app from flathub, by typing <code>flatpak install appname</code></p>
+
+<h2 id="tiling">Tweak the tiling extension in Ubuntu 24.04</h2>
+<p>If you are encountering <a href="Ubuntu_files/tiling-issue.png">issues</a> with tiling on your Noble Numbat, just disable everything within the extension's settings. You can get there by opening <b>Extensions</b>, and finding <b>Ubuntu Tiling Assistant</b> It can still do corner tiling afterwards, which is the only feature that matters in my opinion.</p>
+
+<img src="Ubuntu_files/ubuntu-tiling.png" width="65%" height="auto">
+
+<h2 id="shortcuts">Add your own shortcuts</h2>
+<p>This is just my preference, obviously. But I found that these shortcuts make working with my system the easiest.</p>
+<img src="Ubuntu_files/shortcuts.png" width="80%" height="auto">
+<img src="Ubuntu_files/shortcuts-2.png" width="80%" height="auto">
+
+
+<h2 id="log">Disable logging</h2>
+<p>I can't believe I have to add this one, but I was just playing Cities Skylines and my syslog filled up my entire hard drive. So anyways, here's how to clear and permanently disable logging.</p>
+<ol>
+<li><code>sudo systemctl stop rsyslog</code></li>
+<li><code>sudo systemctl disable rsyslog</code></li>
+<li><code>cd /var/log/</code></li>
+<li><code>sudo sh -c 'echo > /var/log/syslog'</code> (Or you can just rm -rf it)</li>
+</ol>
+
+<h2 id="appimage">Fix AppImages</h2>
+<p>Certain AppImages still depend on the old Libfuse2 library, and so they won't launch on the latest Ubuntu. Install Libfuse by typing <code>sudo apt install libfuse2</code></p>
+<img src="Ubuntu_files/libfuse.png">
+
+
+</main>
+
+
+</body>
+
+</html>

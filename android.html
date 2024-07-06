@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Android hardening guide</title>
+        <meta charset="utf-8"/>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel='stylesheet' type='text/css' href='style.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+<body>
+    <main>
+    
+      <ul id="tagcloud">
+    <li><a href="index.html">About & Contact</a></li>
+    <li><a href="https://drive.filen.io/f/1eac1d77-b724-44f4-9a54-57c183b9c0dc#r3k9qJShHpZeO6SVYI83hl18RUxgWXHq" target="_blank">Gallery</a></li>  
+    <li><a href="blog.html">Blog</a></li>
+    </ul>
+<h1>Android hardening </h1>
+<img src="android.png" 
+    width="auto"
+     height="150"/>
+
+<p>No, I'm not talking about buying a Pixel and flashing Graphene. I'm talking about standard android found in most devices. Although this tutorial should work just fine with Graphene and Lineage as well.</p>
+
+<h2>Attack vectors</h2>
+<p>I am by no means a security expert, so everything on here is just my way of hardening <strong>my</strong> devices. If your bank account gets cleared out, don't look at me.</p>
+
+<p>The way I see it, there are two main attack vectors on Android:</p>
+
+<h3>An app accessing your file system and sending sensitive data to its server of choice</h3>
+<p>Picture this. Your friends are all using Discord, therefore your choices are to find new friends or download the app. Let's assume you are mentally okay, and download Discord. The first permission it will ask of you is File Access. With this, you can easily pick an image you want to send. Yay!...And you also made it possible for discord to access any image on your device. Oops. This one is pretty easy. Hold the app icon, then go to <strong>App Info > Permissions > Files and Media > Don't allow</strong></p>
+
+<p>Very straightforward. I advise you don't stop reading here, as you are not fully safe yet.
+<h3>An app accessing your clipboard and also sending its content to a random server</h3>
+<p>Have you ever noticed this?</p>
+<img src="paste-window.png" 
+    width="250"
+     height="auto"/>
+<p>This innocent looking "paste" indicates that the app you are using can access your clipboard at any time, not just when you press the button. Don't believe me? Read up on it <a href="https://www.howtogeek.com/680147/psa-all-apps-can-read-your-iphone-and-android-clipboard/">here</a>. And before anuone says <strong>"But Tsugu, Android has implemented a feature that lets you know when an app has pasted text from the clipboard!"</strong>, please tell me, how exactly does this matter if the text is already in possesion of a remote server?</p>
+<p>A very simple way of mitigating this <strong>without loosing any functionality</strong> is to:</p>
+<ol>
+<li>Install <strong>ADB (Android Debug Bridge)</strong> - On GNU/Linux systems it's a matter of a single command. On Windows, <a href="https://www.xda-developers.com/install-adb-windows-macos-linux/">good luck</a>.</li>
+<li>We will also need an app called <strong>Package Manager</strong> to be installed on your Android device. You can grab it from <a href="https://f-droid.org/en/packages/com.smartpack.packagemanager/">F-droid.</a>.</li>
+
+<li>Go into your Android's <strong>developer settings</strong>. You can enable them by scrolling down in your main settings window, finding <strong>About phone</strong>, and quickly tapping on the <strong>Build number</strong>. You will know when to stop when a message telling you that you are a developer pops up.</li>
+<li>Once there, find an option called <strong>USB Debugging and turn it on.</strong></li>
+<li>On your PC, head over to the terminal and type <code>adb devices</code>. A message should popup on your phone prompting you to allow access from your computer. Accept it.</li>
+<li>On your phone, open <strong>Package Manager</strong>, and type in <strong>Discord</strong> as an example. You should see an entry saying <code>com.discord</code>. This is how the package is actually named. Discord is just a display name, and your phone wouldn't recognize it. Mind you, not all package names are just com.[app's name]. For example my gallery app's package name is <code>come.simplemobiletools.gallery.pro</code></li>
+<li>In your terminal, type in <code>adb shell appops set com.discord READ_CLIPBOARD ignore</code>. Now Discord can't access your clipboard. We can verify this by typing <code>adb shell appops get com.discord</code>. It will list all of the permissions, and if there is <strong>ignore</strong> besides <strong>READ_CLIPBOARD</strong>, you have succeeded.</li>
+
+</ol>
+<p>Have you accidentally forbidden your keyboard from accessing the clipboard or something like that? <code>adb shell appops set com.name.name2 READ_CLIPBOARD allow</code>. </p>
+<p>I also mentioned that you will not lose any functionality, yet not being to paste stuff into an app seems like a very big deal;, right? wellll, every keyboard allows you to paste directly from within itself, which looks something like this:</p>
+<img src="openboard.gif" 
+    width="auto"
+     height="auto"/>
+
+<p>I know that at first glance it seems like a lot of steps, but it could be summed up as "forbid clipboard access via ADB". So, now Discord can't access our file system, nor our clipboard. Are we safe yet? Safe from Discord, relatively yes. It can still talk to its servers, obviously, but you can't forbid a chat app from accessing the internet.</p>
+
+<h3>Built-in telemetry and other apps that should not have internet access</h3>
+<p>While using the <strong>Package Manager</strong>, you may have noticed a few intersting apps being installed on your device by default. In case of my Nokia 5.4, it's several packages sending telemetry over to the HMD, as well as telemetry packages by Qualcomm and Google. Let me show you an easy way of setting up a firewall that prevents even the system apps from connecting anywhere.</p> 
+<ol>
+<li>We will need  <a href="https://f-droid.org/en/packages/eu.faircode.netguard/">NetGuard</a>, a firewall app that pretends to be a VPN but doesn't route your traffic anywhere. It makes use of an android feature allowing you to select which apps should be routed via a VPN and which ones should not.</li>
+Adter you  
+<li>Open it, go into the <strong>Settings > Advanced options > Manage system apps</strong></li>
+<li>In order to see them, you might need to open the main page of NetGuard, press the third button from the right, and select <strong>Show system apps</strong></li>
+<li>Search for the offending app, and simple press the <strong>WiFi</strong> and <strong>Data</strong> symbol. They should turn red and get crossed</li>
+</ol>
+<p>This obviously works on user apps as well, so feel free to forbid this access to any app that doesn't necessarily need it. The less apps being able to connect to the internet, the smaller the attack vector becomes.
+
+<h3>Your default keyboard</h3>
+<p>In the featured gif, I was not using Gboard or Microsoft Swiftkey, as they are highly insecure. I reccommed you to use <a href="https://f-droid.org/en/packages/org.dslul.openboard.inputmethod.latin/">OpenBoard</a>, a libre fork of Gboard.</p>
+
+<h2>Summary</h2>
+<p>Make sure to forbid internet access to apps that can function without it, and also forbid apps from accessing your clipboard.</p>
+   </main>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Threema - worth it?</title>
+        <meta charset="utf-8"/>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel='stylesheet' type='text/css' href='style.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+<body>
+    <main>
+    
+      <ul id="tagcloud">
+    <li><a href="index.html">About & Contact</a></li>
+    <li><a href="https://drive.filen.io/f/1eac1d77-b724-44f4-9a54-57c183b9c0dc#r3k9qJShHpZeO6SVYI83hl18RUxgWXHq" target="_blank">Gallery</a></li>
+   
+    <li><a href="blog.html">Blog</a></li>
+    </ul>
+	
+	
+	
+	<h1>Threema - the most secure messenger for 5 euros?</h1>
+	<img src="threema.jpg" 
+    width="150"
+     height="150"/>
+
+ 
+ <h2>Pros</h2>
+ <h3>Threema's dedication to free software.</h3>
+ 
+  <p> They are <b>not</b> just making a repository with an open source license forbidding you from making modified copies and asking you to code for them for free. </p>
+  
+  
+  
+  <p>They are hosting an  <a href="https://threema.ch/en/faq/libre_installation">F-Droid repo</a> with a fully libre version of the app, using its own notification service instead of Google's firebase. This version of the app is also updated regularly, and is not missing anything compared to the main version.</p>
+ 
+ <h3>The desktop mode.</h3>
+ <p> Similarly to Signal, Threema only allows you  to use the app on a single phone, soon a single Desktop. But for now you have to pair the app with a desktop version, available for every platform. (Also licensed under AGPL).</p>
+    
+   <h3>Perfect forward secrecy enabled by default.</h3> 
+   <p>A lot reviews that I've found mentioned the app's security is not the best due to a lock of PFS, but Threema has enabled it by default when they rolled out their new protocol, Ibex.</p>
+
+   <img src="threema-pfs.png" 
+     width="auto"
+     height="auto"/>
+    
+   <h3>Semi-anonymous sign up.</h3> 
+   <p>In order to use the service you don't need to enter your phone number or anything else. Your license key is all you need. The problem with this is obviously that you have to obtain a key somehow. While Threema offers payments in Bitcoin, there is no Monero option, so the anonymity is limited, unless someone else buys the key for you.</p>
+   
+   <h3>Funding of the service</h3>
+   <p>2-5€ * 12 000 000 users means they will run out of money at some point, right? I actually used to share this opinion, and it would make sense if all that Threema offered was the messaging app we are using.</p>
+<p>Do consider <a href="https://threema.ch/en/work/clients">this</a>, though. Threema Work and OnPrem are being used by over 8 000 companies and organizations (notable ones being Mercedes and the Swiss police), each of them paying monthly. The price of one license per user and per month ranges from <a href="https://threema.ch/en/work/pricing">1.5€ up to 3€</a>. Thousands of organizations, with thousands of employees are paying to use Threema every month. Let's also not forget about <a href="https://threema.ch/en/gateway/products">Gateway</a> and <a href="https://threema.ch/en/broadcast/pricing">Broadcast</a>. When you start counting, the income from all of these services is more than enough to fund everything.</p>
+
+    <h2>Cons</h2>
+    
+ <h3>Centralization.</h3> 
+ <p>Just like Signal, Threema is using centralized servers located in Switzerland. Self hosting is possible, if you are a company willing to pay for the set up, but this doesn't apply to regular users.</p>
+ 
+   <h3>The server side is proprietary.</h3> 
+   <p>Which is not a big deal as all of the encryption happens locally, but it's worth mentioning.</p>
+   
+   <h3>Inability to edit or delete messages for both parties.</h3>
+   <p>According to <a href="https://github.com/threema-ch/threema-ios/blob/1e9da0cf5162f3541677fded40c1dec8d6476f3c/SharedResources/Strings/en.lproj/Localizable.strings#L1944-L1955">this piece of code</a>, it seems like it's coming soon, but as of May 2024, there is no message editing or deletion present.</p>
+   
+   <h2>Neat features</h2>
+   <h3>Being able to see what exactly is happening with your message.</h3>
+      <img src="threema-info.png" 
+     width="auto"
+     height="auto"/>
+   
+   
+   <h3>Being able to request all of the data threema keeps about you with a single command.</h3>
+   <p>Just add <strong>*MY3DATA</strong> to your contacts and send 'info'.</p>
+      <img src="threema-command.png" 
+     width="auto"
+     height="auto"/>
+   
+    <h2>Summary</h2>
+<p>I believe that despite its shortcomings in the number of supported platforms, or the limited features, Threema is one of the most solid messengers I&#39;ve ever tested, mostly thanks to its clear business model.</p>
+<p>I mean really, if someone from your group does not have a smartphone, XMPP or Matrix are always there.</p>
+
+
+   
+   </main>
+</body>
+</html>
