@@ -41,6 +41,15 @@ h3 {
     color: gold;
 }
 
+.white {
+	color: lime;
+}
+
+.lime
+	{
+		color: white;
+	}
+
 /* "a" is for links. */
 a {
     color: lightblue ;
