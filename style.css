@@ -47,6 +47,7 @@ a {
 
 }
 
+
 /* The "hover" option, which can be used with pretty much anything, allows you
  * to set different settings if someone hovers over something with their mouse.
  * */
@@ -257,8 +258,8 @@ aside.callout  {
 }
 
 .kontakt {
-text-align: left;
-}
+	text-align: center;
+	}
 
 video {
 margin: auto ;
@@ -295,7 +296,7 @@ h2 {
 	border-bottom: none;
 	max-width: 800px ;
 	margin: 1em auto ;
-	background: linear-gradient(to right, #fd2946, #ff7316,#ff2020, #df3d31);
+	background: linear-gradient(to right, #fd4229, #ff7316,#e9493b, #df5431);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 
