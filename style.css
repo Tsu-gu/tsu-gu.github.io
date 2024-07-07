@@ -3,7 +3,7 @@
 
 body {
 	color: white;
-	background: #1f1f1f ;
+	background-image: url("bg.png");
 	margin-bottom: 200px ;
     	font-family: monospace;
 font-size: 17px;
@@ -283,7 +283,7 @@ max-width: 90%;
 @media (max-width: 30em) {
 body {
 	color: white;
-	background: #1f1f1f;
+	background-image: url("bg.png");
 	margin-bottom: 200px ;
     	font-family: monospace;
 /*velkost fontu pre mobili*/
