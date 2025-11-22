@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Snap cursors</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Custom snap cursors">
+<meta property="og:description" content="You installed a custom cursor but snap apps only display the default one. Time to get rid of snap, or?...">
+<meta property="og:image" content="/Start_Linux/snapgoodpreview.webp">
+<meta property="og:url" content="https://tsugu.xyz/snapcursors">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+</head>
+
+<body>
+    <main>
+    
+        <div class="kontakt">
+
+            <div class="tagcloud">
+              <div class="button-container">
+      
+          <a href="index.html" class="join-button-tagcloud">Home</a>
+          <a href="gallery.html" class="join-button-tagcloud">Gallery</a>
+          <a href="blog.html" class="join-button-tagcloud">Blog</a>
+            </div>
+          </div>
+        </div>
+	
+	
+	
+	<h1>How to install cursors into snaps</h1>
+  <h3 class="kontaktfooter">Updated on: 27.10.2025
+  </h3>
+<div class="kontakt">
+<p>A common problem with snaps is this:</p>
+</div>
+<img src="Ubuntu_files/custo-cursors-1.png" alt="Custom cursors not working in snaps"/>
+<div class="kontakt">
+
+<p>You installed a custom cursor but snap apps only display the default one.</p>
+</div>
+<img src="Ubuntu_files/no-custom-cursor.png" alt="Custom cursors not working in snaps"/>
+
+<h2>The solution</h2>
+<p>You won't be able to install all of your custom cursors but assuming they're on snapcraft, all you have to do is download a content snap.</p>
+<p><b>This guide assumes you're using Catppuccin and have already installed it into your system</b> by unzipping the theme into $HOME/.icons and you have a working custom cursor.</p>
+<a href="https://snapcraft.io/cursor-theme-catppuccin">
+<img src="Ubuntu_files/catppuccin.png" alt="Custom cursors not working in snaps"/>
+</a>
+<br>
+<img src="Ubuntu_files/logout.png" alt="Custom cursors not working in snaps"/>
+<p>After you download it, simply logout.</p>
+
+<img src="Ubuntu_files/workingcursorinsnap.png" alt="Custom cursors not working in snaps"/>
+
+<p>From my testing it works anywhere, even in my own snaps.</p>
+<a href="https://snapcraft.io/lagrange-tsugu">
+<img src="Ubuntu_files/worksinothersnaps.png" alt="Custom cursors not working in snaps"/>
+</a>
+<p>From now on you can swap between the cursor themes without logging out. As mentioned already, this solution won't support every available cursor theme in existence. However the most common ones are covered and if you wanted to dive deeper into snap, you could learn how to build your own.</p>
+<p>It's not ideal but it's a supported solution that works.</p>
+   </main>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>My experience with snaps</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="My experience with snaps">
+  <meta property="og:description" content="Snaps are universally hated by the online Linux community, however I always liked the way they worked. And so I decided to dive deeper into how they are made and learn how to make them. Long story short: anyone can learn this but the difficulty heavily depends on each individual app you try to snap.">
+  <meta property="og:image" content="favicon.png">
+  <meta property="og:url" content="https://tsugu.xyz/snap">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+</head>
+
+<body>
+  <main>
+    <div class="kontakt">
+
+      <div class="tagcloud">
+        <div class="button-container">
+
+    <a href="index.html" class="join-button-tagcloud">Home</a>
+    <a href="gallery.html" class="join-button-tagcloud">Gallery</a>
+    <a href="blog.html" class="join-button-tagcloud">Blog</a>
+      </div>
+    </div>
+  </div>
+  <h1>My experience with snaps</h1>
+          <img src="snapgoodpreview.webp" alt="Snap experience" class="imgmobile50">
+
+      <h3 class="kontaktfooter">Updated on: 18.7.2025
+    </h3>
+    <p>Snaps are universally hated by the online Linux community, however I always liked the way they worked. And so I decided to dive deeper into how they are made and learn how to make them. Long story short: anyone can learn this but the difficulty heavily depends on each individual app you try to snap.</p>
+
+    <p>In this article I will dissect a few of the snaps I maintain to show the way I created them, what problems I faced and lastly why you might consider learning snap if you want to package stuff for Linux and don't know which method to pick.</p>
+
+    <p><strong>Disclaimer:</strong> I'm not a developer. I'm just a dude that likes Ubuntu.</p>
+
+    <h2>Snapping Picocrypt</h2>
+    <p><a href="https://github.com/Tsu-gu/picocrypt-snap/blob/main/snap/snapcraft.yaml">The snapcraft.yaml</a></p>
+
+    <p>When starting out I knew I had to pick something super simple. Something distributed as a single binary so that I don't have to deal with compiling. In case you didn't know, Snaps don't require compiling, all it needs is some binaries/scripts. How you manage to get them inside of the snap doesn't matter. Most of my snaps are repackages of either .deb or tar.gz</p>
+
+    <h3>Retrieving its binary</h3>
+
+    <p>What I tried at first was using the default dump plugin and just grabbing the binary. This didn't work as the binary needs to be executable, which makes sense.</p>
+
+    <p>So I decided to do this instead:</p>
+
+    <div class="code-box"><pre>override-build: |
+      mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/bin"
+      wget -q -O "$SNAPCRAFT_PART_INSTALL/usr/bin/picocrypt" "https://github.com/Picocrypt/Picocrypt/releases/download/${SNAPCRAFT_PROJECT_VERSION}/Picocrypt"
+      chmod +x "$SNAPCRAFT_PART_INSTALL/usr/bin/picocrypt"
+      craftctl default</pre></div>
+
+    <p>SNAPCRAFT_PART_INSTALL is basically the directory snap will download into by default. Think of it as your workspace. When you wget anything it will be downloaded there, and that space will be shipped the final snap.</p>
+
+    <p>So the first line simply tells snap to go create usr/bin/ in that workspace. This is not necessary at all for this specific app but I did it anyways. You could totally just wget the binary, chmod +x it and that's it. In which case this</p>
+
+    <div class="code-box"><pre>apps:
+  picocrypt-tsugu:
+    command: usr/bin/picocrypt</pre></div>
+
+    <p>Would turn into</p>
+
+    <div class="code-box"><pre>apps:
+  picocrypt-tsugu:
+    command: picocrypt</pre></div>
+
+    <p>But now you know that you can create directories in snap's folder! We're learning.</p>
+
+    <p>So the binary is inside of our snap, and we can launch it. Cool.</p>
+
+    <h3>Dependencies</h3>
+
+    <p>Each app's dependencies are different, so you will have to consult the build instructions of each app. Orrrr, you run</p>
+
+    <div class="code-box"><pre>ldd path/to/binary | grep "not found"</pre></div>
+
+    <p>which would produce something like</p>
+
+    <div class="code-box"><pre>    libnss3.so => not found
+    libnssutil3.so => not found
+    libsmime3.so => not found
+    libnspr4.so => not found</pre></div>
+
+    <p>(Just an example output. Not the dependencies of this app.)</p>
+
+    <p>Define the dependencies in</p>
+
+    <div class="code-box"><pre>stage-packages:
+      - libc6 
+      - libgcc-s1 
+      - libgl1 
+      - libgtk-3-0 
+      - libstdc++6 
+      - libx11-6
+      - libproxy1v5
+      - libproxy1-plugin-gsettings</pre></div>
+
+    <p>Stage packages are just that, dependencies shipped with the snap. Build packages are only used for building it and won't be shipped to the user.</p>
+
+    <p>When reading my snapcraft.yaml you are surely wondering, how the fuck did I come up with a lot of the stuff in it. What's libproxy??? How did I know to include it?? Simple. it threw an error, I googled it, and this was the fix. It's a good idea to keep libproxy in mind as I had to use this LD_LIBRARY_PATH workaround in multiple snaps.</p>
+
+    <h3>Including another app inside of the snap</h3>
+
+    <p>You might've noticed another app defined in the file, called cli. You're reading that correctly. Every snap can contain an infinite ammount of apps. Personally I make use of this to include the TUI/CLI variants of apps if they exist. This one can be launched by typing</p>
+
+    <div class="code-box"><pre>picocrypt-tsugu.cli</pre></div>
+
+    <h3>Defining the app and its plugs</h3>
+
+    <p>In the app section, you will need to define both apps, define their plugs and include an extension if it's a GUI app. The [gnome] extension helps the app to work better with the desktop. I haven't looked too deep into what they actually do.</p>
+
+    <p>The plugs are pretty self explanatory as well. Oh! When snapping Filen Cloud's desktop client I encountered an error regarding Unity and I was left flabbergasted. Then I remembered the unity7 plug exists. I defined it and the app launched. You may encounter bizzare stuff like this sometimes.</p>
+
+    <p>You don't have to remember what each plug does, that's what the documentation is for. Feel free to define as many of them as you want, you can always remove the redundant ones.</p>
+
+    <p>A good rule of thumb is: If it's a GUI app, it needs the GNOME extension and these plugs</p>
+
+    <div class="code-box"><pre>plugs:
+    - home
+    - removable-media
+    - wayland
+    - x11
+    - desktop
+    - desktop-legacy
+    - network
+    - network-bind</pre></div>
+
+    <p>And that was it for this snap. Pretty easy. The most important lesson I learned from this is that snaps are just containers filled with executables, and you can modify their content however you please. Now they don't seem as scary anymore.</p>
+
+    <h2>Snapping Lagrange</h2>
+    <p><a href="https://github.com/Tsu-gu/lagrange-tsugu/blob/main/snap/snapcraft.yaml">The snapcraft.yaml</a></p>
+
+    <p>Since we're on Gemini, let's talk about how I snapped an app where actual compiling was needed. The core concepts are the same however this one was way more involved since a compiler was involved. We aren't simply wgetting a binary.</p>
+
+    <h3>Building it</h3>
+
+    <p>Lagrange provides an entire page dedicated to compiling it, with all of the dependencies. Yoink. The nil plugin means we don't want to use any plugin, we want to do stuff in the environment ourselves. I don't remember why I didn't use a plugin but there is probably a reason for it, specifically something not working. But that's okay, all the plugins do is run some default set of commands.</p>
+
+    <p>the override-build: section is our commands. All present on Lagrange's website.</p>
+
+    <p>Now, the build-environment: part is important because the snap wouldn't compile without it. Remember when I said I'm not a developer and just a dude? So yeah. I have a feeling the CMAKE_PREFIX_PATH is redundant as there's already DCMAKE_INSTALL_PREFIX up in the override build flags but if it compiles and works fine, don't touch it.</p>
+
+    <p>the PKG_CONFIG_PATH is another thing I just had to search up when it was throwing errors. Just take these things the way they are, we can't understand everything. When building other apps I don't remember having to do this so it may just apply to cmake?</p>
+
+    <h3>Defining the app</h3>
+
+    <p>I had to use the same LD_LIBRARY_PATH workaround as with Picocrypt interestingly enough. Told you it would be relevant.</p>
+
+    <p>According to the documentation, XDG_CONFIG_HOME is used by Lagrange to determine your HOME. In this case SNAP_USER_DATA is /home/tsugu/snap/lagrange/current/. Not to worry tho, it will be mostly storing its configuration there. Since I gave it the home plug, you can just download into any folder in HOME as usual.</p>
+
+    <h3>TUI</h3>
+
+    <p>There's the TUI app defined, but where did it come from?</p>
+
+    <p>Look into override-build:</p>
+
+    <div class="code-box"><pre>
+      cmake .. \
+        [OTHER FLAGS]
+        -DENABLE_TUI=YES</pre></div>
+
+    <p>Now anyone curious in trying it out can just do lagrange-tsugu.tui. Pretty good no? In exchanged for a few megabytes of space you have this alternative user interface available. I also had to include an ncurses library into stage packages which makes sense. This is an ncurses app.</p>
+
+    <h3>The problem I faced</h3>
+
+    <p>I wanted to add in WebP support and since there was a flag for it I set it to YES. No webp. I investigated further, tried adding multiple different packages, nothing.</p>
+
+    <p>So I decided to build Lagrange outside of Snap. As it turned out, webp did not work there either even tho the compiler said it found libwebp, library needed for this. What is the reason for this I never found out, but the other variations of Lagrange don't have webp support either so it's probably fine.</p>
+
+    <h2>Final thoughts</h2>
+
+    <p>I enjoy working with Snap. Despite it being universally hated in online Linux spaces, seeing an app launch feels really good. I also like to think that if Ubuntu Core launches, the bigger the catalogue of apps the better.</p>
+
+    <p>Wait! I never showed you how to create a desktop entry for a snap!</p>
+
+    <p>Go into your project's folder and create a folder called "gui"</p>
+
+    <p>So it will look like</p>
+
+    <div class="code-box"><pre>lagrange-snap/
+├── snapcraft.yaml
+└── gui/
+    ├── lagrange-tsugu.desktop
+    └── lagrange-tsugu.png</pre></div>
+
+    <p>The only special thing about these is that in the .desktop file you need to define the icon as</p>
+
+    <div class="code-box"><pre>Icon=${SNAP}/meta/gui/lagrange-tsugu.png</pre></div>
+
+    <p>This will make it have an icon in your taskbar too. Obviously you could take a different route such as extracting the .desktop files from the app and manipulating them but this is just so straightforward with no chance of going wrong.</p>
+
+</main>
+
+
+</body>
+
+</html>

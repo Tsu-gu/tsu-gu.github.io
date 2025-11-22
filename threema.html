@@ -11,12 +11,17 @@
 <body>
     <main>
     
-      <ul id="tagcloud">
-    <li><a href="index.html"><b>About & Contact</b></a></li>
-    <li><a href="gallery.html" target="_blank"><b>Gallery</b></a></li>
-    <li><a href="blog.html" target="_blank"><b>Blog</b></a></li>
-    </ul>
-	
+      <div class="kontakt">
+
+        <div class="tagcloud">
+          <div class="button-container">
+  
+      <a href="index.html" class="join-button-tagcloud">Home</a>
+      <a href="gallery.html" class="join-button-tagcloud">Gallery</a>
+      <a href="blog.html" class="join-button-tagcloud">Blog</a>
+        </div>
+      </div>
+    </div>
 	
 	
 	<h1>Threema - the most secure messenger for 5 euros?</h1>
@@ -24,11 +29,13 @@
     width="150"
      height="150"/>
 
- 
+     <h3 class="kontaktfooter">Updated on: November 3 - 2024
+    </h3>
+    
  <h2>Pros</h2>
  <h3>Threema's dedication to free software.</h3>
  
-  <p> They are <b>not</b> just making a repository with an open source license forbidding you from making modified copies and asking you to code for them for free. </p>
+  <p>They are <b>not</b> just making a repository with an open source license forbidding you from making modified copies and asking you to code for them for free. </p>
   
   
   
@@ -39,10 +46,8 @@
     
    <h3>Perfect forward secrecy enabled by default.</h3> 
    <p>A lot reviews that I've found mentioned the app's security is not the best due to a lock of PFS, but Threema has enabled it by default when they rolled out their new protocol, Ibex.</p>
-
-   <img src="threema-pfs.png" 
-     width="auto"
-     height="auto"/>
+    <p>Note: In latest versions of Threema this toggle got removed. PFS is enabled and can't be turned off, which is good.</p>
+   <img src="threema-pfs.png" class="imgmobile60">
     
    <h3>Semi-anonymous sign up.</h3> 
    <p>In order to use the service you don't need to enter your phone number or anything else. Your license key is all you need. The problem with this is obviously that you have to obtain a key somehow. While Threema offers payments in Bitcoin, there is no Monero option, so the anonymity is limited, unless someone else buys the key for you.</p>
@@ -59,21 +64,14 @@
    <h3>The server side is proprietary.</h3> 
    <p>Which is not a big deal as all of the encryption happens locally, but it's worth mentioning.</p>
    
-   <h3>Inability to edit or delete messages for both parties.</h3>
-   <p>According to <a href="https://github.com/threema-ch/threema-ios/blob/1e9da0cf5162f3541677fded40c1dec8d6476f3c/SharedResources/Strings/en.lproj/Localizable.strings#L1944-L1955">this piece of code</a>, it seems like it's coming soon, but as of May 2024, there is no message editing or deletion present.</p>
-   
    <h2>Neat features</h2>
    <h3>Being able to see what exactly is happening with your message.</h3>
-      <img src="threema-info.png" 
-     width="auto"
-     height="auto"/>
+      <img src="threema-info.png" class="imgmobile50">
    
    
    <h3>Being able to request all of the data threema keeps about you with a single command.</h3>
    <p>Just add <strong>*MY3DATA</strong> to your contacts and send 'info'.</p>
-      <img src="threema-command.png" 
-     width="auto"
-     height="auto"/>
+      <img src="threema-command.png" class="imgmobile50">
    
     <h2>Summary</h2>
 <p>I believe that despite its shortcomings in the number of supported platforms, or the limited features, Threema is one of the most solid messengers I&#39;ve ever tested, mostly thanks to its clear business model.</p>

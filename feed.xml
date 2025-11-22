@@ -1,0 +1,50 @@
+<rss version="2.0">
+<channel>
+
+<title>Tsugu's cave RSS Feed</title>
+<link>https://tsugu.xyz</link>
+<description>By subscribing to this feed you will receive updates about tsugu.xyz. When I remember to do it, that is. I suck at maintaining rss.</description>
+
+<item>
+<title>Added support for Debian and Fedora for Tsubuntu</title>
+<link>https://tsugu.xyz/tsubuntu</link>
+<description></description>
+<pubDate>Sep 29 2024</pubDate>
+</item>
+
+
+<item>
+<title>Updated linuxstart.html</title>
+<link>https://tsugu.xyz</link>
+<description></description>
+<pubDate>Sep 21 2024</pubDate>
+</item>
+
+
+<item>
+<title>Update</title>
+<link>https://tsugu.xyz</link>
+<description>Upgraded messengers.html. Images scale well on both mobile and PC. Edited the threema section.</description>
+<pubDate>Aug 12 2024</pubDate>
+</item>
+
+
+
+<item>
+<title>Update</title>
+<link>https://tsugu.xyz</link>
+<description>Added gear.html and the network state to resources</description>
+<pubDate>Aug 9 2024</pubDate>
+</item>
+
+
+
+<item>
+<title>Update</title>
+<link>https://tsugu.xyz</link>
+<description>Added this RSS and updated profile picture</description>
+<pubDate>Aug 3 2024</pubDate>
+</item>
+
+</channel>
+</rss>

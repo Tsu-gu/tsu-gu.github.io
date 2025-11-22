@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Plasma to Unity</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Plasma to Unity">
+  <meta property="og:description" content="Tutorial on turning plasma into a budget unity clone">
+  <meta property="og:image" content="/plasmaunitypreview.webp">
+  <meta property="og:url" content="https://tsugu.xyz/cosmic">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+</head>
+
+<body>
+  <main>
+    <div class="kontakt">
+
+      <div class="tagcloud">
+
+    <a href="index.html" class="join-button-tagcloud">Home</a>
+    <a href="gallery.html" class="join-button-tagcloud">Gallery</a>
+    <a href="blog.html" class="join-button-tagcloud">Blog</a>
+    </div>
+  </div>
+
+    <h1>Plasma to Unity</h1>
+
+    <img src="plasmatounity/plasmatounityfinal.webp" class="imgmobile80">
+
+    <h3 class="kontaktfooter">Updated on: January 28 - 2025
+    </h3>
+    <p>Sort of. I don't really understand theming and don't particularly care about it. Which is why in this tutorial I won't theme plasma at all. I will just attempt to create a mix between Unity and the current GNOME Ubuntu uses, via KDE Plasma. That's really strange but it works really well.</p>
+    <p>If you're wondering why is there no script just like Tsubuntu, the simple reason is that Plasma scripting makes no sense to me. Tested on Kubuntu 24.04.</p>
+    <h1>Setting up the layout</h1>
+    <p>I will assume that you aren't blind and that's why I won't be describing every detail. You can see the items on the panels and how they are arranged.</p>
+    <h2>Top panel</h2>
+    <p>Unity had the clock and notifications on the right. I like them in the middle.</p>
+    <img src="plasmatounity/toppanelconfig.webp" >
+    <h2>Side panel</h2>
+    <img src="plasmatounity/sidepanel.webp" >
+
+    <h1>Other functionality</h1>
+    <h2>Hide title bar on maximize</h2>
+    <p>Totally optional but this saves some space on your screen, and it just makes sense to me. In Unity maximizing an app would bring the close, maximize and minimize buttons to the top bar which is not possible on KDE without  the use of some outdated extension. So I won't be doing that.</p>
+    <p>Open</p>
+    <code>~/.config/kwinrc
+    </code>
+   <p>Find the section <code>[Windows]</code> and add <code>BorderlessMaximizedWindows=true</code> under it. It should look something like this:</p>
+
+<code>[Windows]<br>
+  BorderlessMaximizedWindows=true</code>
+
+
+  <h2>Workspaces</h2>
+  <p>By default they aren't enabled, so you have to add however many you want</p>
+  <img src="plasmatounity/workspaces.webp" class="imgmobile80">
+
+<h1>Keybindings</h1>
+<h2>Meta (Windows) key launches overview like in GNOME</h2>
+<code style="word-break: break-all;">kwriteconfig5 --file kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.kglobalaccel,/component/kwin,,invokeShortcut,Overview" <br><br>
+  qdbus org.kde.KWin /KWin reconfigure
+  </code>
+  <br>
+  <p>For Plasma 6 I assume all that has to change is <code>kwriteconfig5</code> to <code>kwriteconfig6</code></p>
+<img src="plasmatounity/metasearch.webp" class="imgmobile80">
+
+<h2>Region screenshot & task manager</h2>
+<p>Set <code>plasma-systemmonitor</code> to <b>Ctrl + Shift + Esc</b> and set <code>spectacle -r</code> to <b>Meta + Shift + S</b></p>
+<img src="plasmatounity/shortcuts.webp" class="imgmobile80">
+
+<h2>Already set up in Plasma </h2>
+<ul>
+  <li>Super + V - Bring up clipboard
+</li>
+<li>Super + E - Open file manager
+</li>
+</ul>
+<hr>
+<p>And that should be it. One major difference between this and Tsubuntu is that moving to different workspaces is done with Ctrl + Meta + Arrow keys instead of Ctrl + Alt + Arrow keys</p>
+
+</main>
+
+
+</body>
+
+</html>

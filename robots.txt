@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Sitemap: http://tsugu.xyz/sitemap-2.xml 
+Sitemap: http://tsugu.xyz/sitemap.xml 

@@ -8,26 +8,38 @@
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Start with Linux">
+<meta property="og:description" content="In this article I will clear up any confusion you might have about Linux, which distribution to pick, and how to install software on your system.">
+<meta property="og:image" content="/Start_Linux/distros.webp">
+<meta property="og:url" content="https://tsugu.xyz/linuxstart">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 </head>
 
 <body>
   <main>
-    <ul id="tagcloud">
-    <li><a href="index.html"><b>About & Contact</b></a></li>
-    <li><a href="gallery.html" target="_blank"><b>Gallery</b></a></li>
-    <li><a href="blog.html" target="_blank"><b>Blog</b></a></li>
-    </ul>
+    <div class="kontakt">
 
+      <div class="tagcloud">
+        <div class="button-container">
+
+    <a href="index.html" class="join-button-tagcloud">Home</a>
+    <a href="gallery.html" class="join-button-tagcloud">Gallery</a>
+    <a href="blog.html" class="join-button-tagcloud">Blog</a>
+      </div>
+    </div>
+  </div>
     <h1>How to start with Linux</h1>
     <img src="Start_Linux/distros.png" width="80%" height="auto">
-    
-<p>Are you confused by the hundreds of videos showcasing so many different "distros"? Everyone keeps telling you not to use this, don't use noob distros like Ubuntu or Linux Mint, use NixOS instead. Don't you dare use anything with X.org, Wayland. Wayland is actually super evil, use X.org. Don't listen to them, use TempleOS, which uses neither.</p>
+    <h3 class="kontaktfooter">Updated on: February 8 - 2025
+    </h3>
 <p>In this article I will clear up any confusion you might have about Linux, which distribution to pick, and how to install software on your system.</p>
 <!-- Table of contents-->
 <h1>Table of contents</h1>
-<ul>
+<ul class="coolhover">
 	
 	<li><a href="#whatislinux">What even is Linux?</a></li>
+  <li><a href="#whyappnorun">Why does Linux not support any of my apps?</a></li>
 	<li><a href="#wheretostart">Where do I start? There are hundreds of distros!</a></li>
 	<li><a href="#importantdistros">The Linux distributions that actually matter</a></li>
 
@@ -42,7 +54,6 @@
 
   </ul>
 
-
   <li><a href="#de">Desktop environments (DEs for short)</a></li>
   <ul>
 
@@ -52,7 +63,6 @@
     
   
     </ul>
-
     <li><a href="#package">Software installation</a></li>
     <ul>
 
@@ -60,26 +70,50 @@
       <li><a href="#flatpak">Flatpak</a></li>
       <li><a href="#snap">Snap</a></li>
       <li><a href="#appimage">AppImage</a></li>
+      <li><a href="#targz">tar.gz archives</a></li>
+      <li><a href="#jar">jar files</a></li>
+      <li><a href="#curl">curl or wget</a></li>
+
+
+
       
     
       </ul>
-
       <li><a href="#displayserver">Display servers</a></li>
       <ul>
 
-        <li><a href="#x">GNOME</a></li>
-        <li><a href="#wayland">Plasma</a></li>
-        
-        
-      
+        <li><a href="#x">X.org</a></li>
+        <li><a href="#wayland">Wayland</a></li>
+  
         </ul>
+
+  <li><a href="#faq">Common questions and problems</a></li>
+<ul>
+  <li> <a href="#mtp">Can I connect my phone to my PC and transfer its files?</li>
+  <li> <a href="#willitwork">Will Linux work on my hardware?</li>
+  <li> <a href="#doesntwork">The distro I flashed onto a USB refused to boot. What now?</a></li>
+  <li> <a href="#wifi">Linux is not detecting my wifi</a></li>
+
+</ul>
+<li><a href="#conclusion">Conclusion</a></li>
 
 </ul>
 
 <h1 id="whatislinux">What even is Linux?</h1>
 <p>That's obvious. Linux is Ubuntu, and the others. Or is it? Actually not really.</p>
-<p>Linux itself is just the kernel, which is essentially a ton of drivers bundled together. It's a widely used kernel because it supports a lot of devices and peripherals. I dare say even more than the kernel of Windows in many cases.</p>
-<p>Ubuntu, Mint, and the countless other distros the community has told you about are using Linux, but also bundle it with other software that actually makes up a functional operating system. Some people refer to these operating systems as GNU/Linux, but even GNU is just a small collection of software, which is not enough to make a functional OS. For simplicity's sake, we can just call the kernel Linux, and the operating systems Linux distros.</p>
+<p>Linux itself is just the kernel, which is essentially a ton of drivers bundled together. Imagine it like this: You click save in a text editor. How is it supposed to physically save the file onto your drive? You may have a SATA SSD, an NVME, and it can't know which motherboard do you have. So, it tells the kernel to do it instead. The kernel contains drivers that know exactly how to do this operation on your specific hardware.</p> 
+<p>It's a widely used kernel because it supports a lot of devices and peripherals. I dare say even more than the kernel of Windows in many cases.</p>
+<p>Ubuntu, Mint, and the countless other distros the community has told you about are using Linux, but also bundle it with other software that actually makes up a functional operating system. Some people refer to these operating systems as GNU/Linux, but even GNU is just a small collection of software, which is not enough to make a functional OS. For simplicity's sake, we can just call the kernel Linux, and the operating system a Linux distro.</p>
+
+<h1 id="whyappnorun">Why does Linux not support any of my apps?</h1>
+
+<p>You may have noticed that basically no apps you are used to on your Windows/MacOS are available on Linux. Why? Are Linux developers stupid? They can't expect anyone to use an OS that can't run any apps.</p>
+<p>Well... the developers would love it if your apps could run. Unfortunately, most of your apps are proprietary. This means the company/individual who made the app has full control of it, including which operating systems it can be installed on.</p>
+<p>Basically every open source app works on Linux flawlessly, so if you want to make the switch, you will need to find open source <a href="https://www.opensourcealternative.to/">alternatives</a> to your favourite apps.</p>
+
+<p>If the alternative app sucks, or doesn't meet your requirements, I'm afraid you will have to stay of Windows until the developer of your app releases a Linux version.</p>
+
+<p>Nvidia GPUs are poorly supported for the same exact reason. Nvidia's proprietary drivers suck balls and the reverse engineered community drivers aren't enough, despite the developers' best efforts.</p>
 
 <h1 id="wheretostart">Where do I start? There are hundreds of distros!</h1>
 <p>Well yes, but actually no. Do you know the concept of software "forking"? This is when a developer modifies another project's code, and releases their own version.</p>
@@ -96,36 +130,39 @@
 <p>Personally I think this is what everyone should use, as this release model ensures that every time you turn on your computer, you can be sure it will work.</p> 
 <p>Debian releases approximately every  2 years, and every release is supported for 5 years.</p>
   <!-- UBUNTU-->
-<h3 id="ubuntu"><img src="Start_Linux/ubuntu.png">Ubuntu<img src="Start_Linux/ubuntu.png"></h3>
+<h3 id="ubuntu" class="big"><img src="Start_Linux/ubuntu.png">Ubuntu<img src="Start_Linux/ubuntu.png"></h3>
 <p>Ubuntu also releases every 2 years, but each release is supported for 10 years. So you can install the latest version available today, and not upgrade to a new version for a decade without a problem.</p>
-<img src="Start_Linux/ubuntu-support.png" width="50%" height="auto" >
+<img src="Start_Linux/ubuntu-support.png" class="imgmobile50" >
 <p>Don't get confused by the "Pro". It's free for everyone if you sign up with your email. Ubuntu also releases a new version every 6 months for those who need the absolute latest software, but you don't have to use those and just stick to your LTS.</p>
-
+<a href="https://ubuntu.com" target="_blank">
 <img src="Start_Linux/ubuntudesktop.png">
-
+</a>
 <p>There is a lot of hate floating around this distribution, but I can assure you, it's unwarranted and you will have a good time while using it. The desktop experience is great, every app supports it, and if you encounter any issue with it, there is a good chance someone else did too.</p>
 
 <p>You can also choose among the <a href="https://ubuntu.com/desktop/flavours"> many spins</a>, which differ by the desktop environment they are using, if you don't like the default GNOME.</p>
 
 <a href="https://kubuntu.org/" target="_blank">
-  <img src="Start_Linux/kubuntu.jpg" width="80%" height="auto">
+  <img src="Start_Linux/kubuntu.jpg" class="imgmobile80">
 </a>
 
 <br>
 <a href="https://ubuntuunity.org/" target="_blank">
-  <img src="Start_Linux/ubuntuunity.jpg" width="80%" height="auto">
+  <img src="Start_Linux/ubuntuunity.jpg" class="imgmobile80">
 </a>
 <br>
 
 <a href="https://ubuntucinnamon.org/" target="_blank">
-  <img src="Start_Linux/ubuntucinnamon.png" width="80%" height="auto">
+  <img src="Start_Linux/ubuntucinnamon.png" class="imgmobile80">
 </a>
 
   <!-- MINT-->
 
-<h3 id="mint"><img src="Start_Linux/mint.png">Linux Mint<img src="Start_Linux/mint.png"></h3>
+<h3 id="mint" class="big"><img src="Start_Linux/mint.png">Linux Mint<img src="Start_Linux/mint.png"></h3>
 <p>This is an active fork of Ubuntu. The main difference between Mint and Ubuntu are that Mint resembles the classic Windows design by default. Ideal for beginners who don't want to get used to a new layout. It also comes preloaded with a lot of useful tools.</p>
-<img src="Start_Linux/linuxmint.png" width="80%" height="auto">
+
+<a href="https://linuxmint.com" target="_blank">
+<img src="Start_Linux/linuxmint.png" class="imgmobile80">
+</a>
 <p>And lastly, Mint favours Flatpak instead of Snap. I will return to this in a later section of this article.</p>
 
 
@@ -137,28 +174,30 @@
 
 <h2 id="rhel"><img src="Start_Linux/redhat.svg">RedHat Enterprise Linux<img src="Start_Linux/redhat.svg"></h2>
 <p>Also founded in 1993, Redhat is one of the oldest Linux companies to exist. They provide secure solutions to businesses, but their operating system, RedHat Enterprise Linux (RHEL for short), is free if you <a href="https://developers.redhat.com/products/rhel/download">register a developer account</a>. You can expect a new release every 3 years, while every release is supported for around 10 years.</p>
-<img src="Start_Linux/rhel9.png" width="80%" height="auto">
+<img src="Start_Linux/rhel9.png" class="imgmobile80">
 <p>While this distro is not aimed at home users, there's nothing stopping you from using it. If you don't mind the older selection of packages, most notably the Desktop Environment and the kernel, you might enjoy your time with it, as RHEL has proven itself to be one of the most stable distributions out there.</p>
 
 <p>In case you don't feel comfortable with creating a RedHat developer account, there are RHEL clones, which are just a rebranded RHEL distributed for free. The most famous ones are <a href="https://rockylinux.org/">Rocky Linux</a> and <a href="https://almalinux.org/">Alma Linux</a>.</p>
 
   <!-- Fedora-->
 
-<h3 id="fedora"><img src="Start_Linux/fedora.png ">Fedora<img src="Start_Linux/fedora.png"></h3>
+<h3 id="fedora" class="big"><img src="Start_Linux/fedora.png ">Fedora<img src="Start_Linux/fedora.png"></h3>
 <p>RHEL is actually using Fedora Linux as its foundation, which is much more user friendly, and it's something you might want to consider using. In essence, Fedora tests new updates and Redhat introduces them at a later date, after they've been thoroughly tested.</p>
-<img src="Start_Linux/fedoradesktop.png" width="80%" height="auto">
+<a href="https://fedoraproject.org/" target="_blank">
+<img src="Start_Linux/fedoradesktop.png" class="imgmobile80">
+</a>
 <p>However this doesn't mean your experience will be attrocious. Quite the opposite. Fedora is also a stable distribution, just like RHEL or Debian, and they release a new version every half a year. From my experience, and what people have told me, Fedora is very stable and suitable for anyone.</p>
 
 <p>You can also choose among the many spins, which differ by the desktop environment they are using.</p>
 <a href="https://fedoraproject.org/spins/kde/" target="_blank">
-  <img src="Start_Linux/fedorakde.jpg" width="80%" height="auto">
+  <img src="Start_Linux/fedorakde.jpg" class="imgmobile80">
 </a>
 
 
 <br>
 
 <a href="https://fedoraproject.org/spins/xfce/" target="_blank">
-  <img src="Start_Linux/fedoraxfce.jpg" width="80%" height="auto">
+  <img src="Start_Linux/fedoraxfce.jpg" class="imgmobile80">
 </a>
 
 
@@ -170,20 +209,24 @@
 <p>Founded in 1994, this German company focuses on enterprise solutions, just like RedHat. While you can't use SUSE Linux as an individual without paying, SUSE uses OpenSUSE as their testing ground. OpenSUSE distros are of course free of charge.</p>
   <!-- tumbleweed-->
 
-<h3 id="tumbleweed"><img src="Start_Linux/tumbleweed.png">OpenSUSE Tumbleweed<img src="Start_Linux/tumbleweed.png"></h3>
+<h3 id="tumbleweed" class="big"><img src="Start_Linux/tumbleweed.png">OpenSUSE Tumbleweed<img src="Start_Linux/tumbleweed.png"></h3>
 <p>This is a so called <b>rolling release</b> distribution. Unlike any of the distros mentioned previously, Tumbleweed has no versions. The system you download is being updated as you go. In pure theory, you could use this forever without upgrading, but rolling release distributions come with a few caveats. One of them being less reliability.</p>
-
-<img src="Start_Linux/tumbleweeddesktop.jpg" width="80%" height="auto">
+<a href="https://get.opensuse.org/tumbleweed/" target="_blank">
+  <img src="Start_Linux/tumbleweeddesktop.jpg" class="imgmobile80">
+</a>
 <p>One day you will update your system, and the next day you will be met with a black screen. Or something you need will not work. Tumbleweed minimizes the risk of this thanks to rollbacks, handled by its file system. But if your main focus is stability, and you just want to work on your machine, rolling release distributions are not for you.</p>
 
 <p>To be fair, Tumbleweed has an advantage in the form of having the latest packages, so you don't have to use flatpak/snap if you don't want to. If you don't mind rollbacking once in a while and troubleshooting your system, you might have fun with this.</p>
-<img src="Start_Linux/tumbleweedinstall.png" width="80%" height="auto">
+<img src="Start_Linux/tumbleweedinstall.png" class="imgmobile80">
 <p>Also it has one of the best installers I have ever used. You download the default ISO, and the installer lets you pick whichever DE you want, as well as the specific package selection.</p>
 <!-- LEAP -->
-<h3 id="leap"><img src="Start_Linux/suseleap.png">OpenSUSE Leap<img src="Start_Linux/suseleap.png"></h3>
-<p>As the name suggests, in this version of OpenSUSE you leap from one version to another. The current version is 15.6, the next one will be 15.7 and so on.</p>
-<img src="Start_Linux/suseleapdesktop.jpg" width="80%" height="auto">
 
+
+<h3 id="leap" class="big"><img src="Start_Linux/suseleap.png">OpenSUSE Leap<img src="Start_Linux/suseleap.png"></h3>
+<p>As the name suggests, in this version of OpenSUSE you leap from one version to another. The current version is 15.6, the next one will be 15.7 and so on.</p>
+<a href="https://get.opensuse.org/leap/15.6/" target="_blank">
+<img src="Start_Linux/suseleapdesktop.jpg" class="imgmobile80">
+</a>
 <p>I have little experience with this distro, but it contains the same installer as Tumbleweed, and I heard from people that it's very stable.</p>
 
 
@@ -195,7 +238,7 @@
 <!--Desktop ENVIRONMENTS-->
 
 
-<h1 id="de">Desktop environments (DEs for short)</h1>
+<h1 id="de">Desktop environments <br>(DEs for short)</h1>
 <p>DEs are the graphical part of every distro. It's what you interact with, and every screenshot from a distro you've seen so far used one of these mentioned desktop environments. There are many DEs out there, but only few that really matter. Whichever one you like is up to you, and there is generally no bad DE as long as you feel comfortable while using it.</p>
 
 <p>No matter which distro you pick, you can always swap its DE. So don't feel pressured into choosing the <b><i>best</i></b> one.</p>
@@ -236,13 +279,16 @@
 <p>In case of Fedora it would be <code>dnf install app</code>, in case of SUSE <code>zypper install app</code>.</p>
 <p>If you don't want to, you don't have to bother with the terminal at all. Graphical appstores ship with every distro. This method is however very fast.</p>
 <!--DEB a RPM-->
-<h3>.DEB/.RPM</h3>
-<p>In addition to installing software from a repository, you can also download files with these extensions, double click and install them. Just like a .exe on Windows. (In case of Ubuntu 24.04 you should install <code>gdebi</code> for the double clicking to work. Canonical did an oopsie.)</p>
+<h3 class="big">.DEB/.RPM</h3>
+<p>In addition to installing software from a repository, you can also download files with these extensions, double click and install them. Just like a .exe on Windows.</p>
 <ul>
   <li>.DEB is for Debian systems, including Ubuntu and Mint.</li>
   <li>.RPM is for RedHat systems like Fedora, but also for SUSE.</li>
 </ul>
-<img src="Start_Linux/installdeb.png" width="70%" height="auto">
+<img src="Start_Linux/installdeb.png" class="imgmobile">
+<p>It's also worth mentioning some apps, especially browsers don't distribute the files on their website but rather give you a command for adding their repository from which the files are downloaded and will be kept up to date.</p>
+<p>Example:</p>
+<img src="Start_Linux/brave.webp" class="imgmobile80">
 <br>
 <hr>
 
@@ -251,9 +297,10 @@
 <p>This is a containerized method of installing software, primarly developed by <a href="#rhel">RedHat</a>. What does containerized mean?</p>
 <img src="Start_Linux/installapt-2.png">
 <p>Notice how APT also installs several other packages. These are called <b>dependepcies</b>, and mpv cannot function without them. What Flatpak does is bundle everything into one container. So when you install the flatpak of mpv, it's a single package.</p>
+<p><b>Note:</b> MPV is a Linux video player. I don't know why I used it as an example but it doesn't matter. Imagine VLC instead if you want.</p>
 
 <p>The advantage of this solution is that it works on every distro, and you can be sure it will behave the same way everywhere. It also makes the job of developers easier.</p>
-<p>How to use flatpak? Well, some gprahical software stores integrate it, some don't. The Appstore that ships with Ubuntu only supports Snaps and APT packages, so you would have to use the terminal.</p>
+<p>How to use flatpak? Well, some graphical software stores integrate it, some don't. The app store that ships with Ubuntu only supports Snaps and APT packages, so you would have to use the terminal.</p>
 <p>It's rather simple tho. You open up <a href="https://flathub.org">Flathub</a>, search for the app you want to install, copy the installation command, and paste it into your terminal.</p>
 
 <img src="Start_Linux/flatpak-1.png">
@@ -262,7 +309,7 @@
 
 <br>
 <img src="Start_Linux/flatpak-3.png">
-<p>Done. You can also integrate flatpak into your graphical app store if you want.</p>
+<p>Done. You can also integrate flatpak into another graphical app store if you download it. This one is the default app store of GNOME.</p>
 
 <p><code>sudo apt install gnome-software-plugin-flatpak gnome-software</code></p>
 <img src="Start_Linux/gnomesoftwareflatpak.png">
@@ -278,7 +325,7 @@
 
 <p>The installation syntax is easier, as you don't have to specify the exact name of the package (<code>snap install mpv</code> will do), and it comes bundled with Ubuntu and their graphical app store.</p>
 <img src="Start_Linux/snapstore.png">
-<p>Snaps are also forbidden from accessing anything they shouldn't on your system, just like Flatpak. I however don't know of a way to manager their permissions.</p>
+<p>Snaps are also forbidden from accessing anything they shouldn't on your system, just like Flatpak.</p>
 <hr>
 
 <!--APPIMAGE-->
@@ -288,8 +335,25 @@
 <img src="Start_Linux/appimage1.png" width="80%" height="auto">
 <br>
 <img src="Start_Linux/appimage2.png" width="80%" height="auto">
-<p>A big disadvantage of AppImages is the fact that integrating them into your system is hard. Let me explain. When you install an app via your package manager, .deb, .rpm, snap and flatpak, you can launch them like you would normally launch an app. You can also pin the app to your taskbar, etc. AppImages need to be launched by opening the folder they are placed in, and double clicking on them. </p>
-<p>The only way to truly integrate them is to create a .desktop file and placing it to /usr/share/applications. But this doesn't always work. So yeah. With AppImages you will have to always visit the folder you placed them in, and double click one to launch it.</p>
+
+<p>If you want to integrate them into your system, to show up in start menu and such, use <a href="https://flathub.org/apps/it.mijorus.gearlever" target="_blank">Gear Lever</a>. You just drag and drop the AppImage there and it will take care of the rest. Similar to how MacOS installs apps I suppose.</p>
+
+<img src="Start_Linux/gearlever.webp" width="100%" height="auto">
+
+<!--tar.gz and other archives-->
+<h2 id="targz"><img src="Start_Linux/tar.png">tar.gz and other archive<img src="Start_Linux/tar.png"></h2>
+<p>This is just a zip file that keeps the permission of the binaries inside. You unzip it into a folder and launch the binaries inside by right clicking and selecting run. Some of them are nice enough to provide a script for integrating this into your Desktop. If not, you have to launch it from the folder you unpacked it to.</p>
+<p>This exists on Windows too in a form of portable versions of apps.</p> 
+<!--jar files-->
+<h2 id="jar"><img src="Start_Linux/jar.webp">jar files<img src="Start_Linux/jar.webp"></h2>
+<p>I've basically never seen this used outside of some minecraft launchers but you may encounter them.</p>
+<p>You can't just right click and execute these. You have to open the terminal and type:</p>
+<code>java -jar app.jar</code>
+<!--Installation command using curl/wget-->
+<h2 id="curl">Installation command using curl/wget</h2>
+<p>You won't see regular apps distributed like this but a lot of programming languages and other developer tools have a command as their method of installation.</p>
+<p>Curl/wget are download managers and the other part of the command usually executes whatever they downloaded, usually a bash script. This <b>can be very dangerous</b> as you're executing a random script as root if it asks for your password, but if you trust the project all you have to do is paste the command into the terminal and press enter.</p>
+<img src="Start_Linux/brew.webp" class="imgmobile80">
   <!-- X a Wayland-->
 
 
@@ -297,15 +361,51 @@
 <p>Remember when I said that Linux distros are a collection of software, and Linux alone is not enough to make a functional operating system? A display server is the component that handles displaying content on your screen.</p>
 
 <h2 id="x"><img src="Start_Linux/x11.png">X.org<img src="Start_Linux/x11.png"></h2>
-<p>This is an old standard that's slowly being replaced.</p>
+<p>This is an old standard that's slowly being replaced. Long time Linux users would probably slap me for such a short description but who cares. Most modern distros don't use it by default anymore and it's becoming irrelevant.</p>
+
 <h2 id="wayland"><img src="Start_Linux/wayland.png">Wayland<img src="Start_Linux/wayland.png"></h2>
 <p>This is the replacement. Most distros use it by default, but in case it gives you trouble on your hardware, you can switch to X.org while logging in and pressing the gear icon.</p>
-<img src="Start_Linux/switchtox.png"
+<img src="Start_Linux/switchtox.png">
+
+
+<br>
+<h1 id="faq">Common questions and problems</h1>
+
+<p>Some of these might seem weird or obvious, but some of these were stopping me from trying out Linux in the past.</p>
+
+<h2 id="mtp">Can I connect my phone to my PC and transfer its files?</h2>
+<p>Yes. This is handled by a package called <b>MTP</b>, pre-installed in every distribution. Transferring files from your phone to the PC and vice versa works the same way as on Windows.</p>
+<img src="Start_Linux/mtp1.png" class="imgmobile80">
+<br>
+<img src="Start_Linux/mtp2.png" class="imgmobile80">
 
 
 
+<h2 id="willitwork">Will Linux work on my hardware?</h2>
+<p>I don't know. Flash Ubuntu onto a USB drive, and run it in live mode to check whether your components are supported.</p>
+<img src="Start_Linux/ubuntulivemode.webp" class="imgmobile80">
+
+<h2 id="doesntwork">The distro I flashed onto a USB refused to boot. What now?</h2>
+<p>Assuming your USB flash drive is okay, and the files aren't corrupt (please <a href="https://ubuntu.com/tutorials/how-to-verify-ubuntu">check that</a> before flashing), try another distro from this list. There is a good chance some of them will work fine on your hardware.</p>
+
+<h2 id="wifi">Linux is not detecting my WiFi</h2>
+<p>Then your wifi module is likely not supported. In the meantime you can use USB tethering (doesn't require mobile data, you can tether the wifi connection). Plug in your phone via USB, go to <b>Tethering & portable hotspot</b> in the settings, and activate USB tethering.</p>
+<a href="https://manual.spacedesk.net/USBTetheringiOSandAndroid.html">
+<img src="images/tethering.webp">
+</a>
+<p class="kontakt">Note: I believe on iPhones you can only tether mobile data which sucks.</p>
 
 
+<h1 id="conclusion">Conclusion</h1>
+<p><b>If you're still confused, or don't want to read all of this, it all boils down to:</b>
+</p>
+
+  <ul>
+    <li>There are many ways of installing software but in the end you can use basically every open source app</li>
+  <li>All of the basic things you expect will work</li>
+<li>Just use Ubuntu if you're unsure which distro to pick</li>
+
+  </ul> 
 
 
 

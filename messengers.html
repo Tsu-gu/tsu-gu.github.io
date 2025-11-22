@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Messengers</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <main>
+    <div class="kontakt">
+
+      <div class="tagcloud">
+        <div class="button-container">
+
+    <a href="index.html" class="join-button-tagcloud">Home</a>
+    <a href="gallery.html" class="join-button-tagcloud">Gallery</a>
+    <a href="blog.html" class="join-button-tagcloud">Blog</a>
+      </div>
+    </div>
+  </div>
+    <h1>An overview of secure messaging apps</h1>
+    <img src="Messengers/messengers-art.png">
+    <h3 class="kontaktfooter">Updated on: February 12 - 2025
+    </h3>
+    <p>As usual, I'm here to bring my opinion on something not many people care about, but testing secure messaging apps is something I truly love, so I thought it might be interesting to share my thoughts on secure messenger I know of.</p>
+
+    <p><b>Proprietary messengers such as WhatsApp or Teleguard are automatically disqualified</b> as their security model depends on the TrustMeBro cryptographic library.</p>
+    <p>I also won't be talking about Telegram as I don't trust it, or its <a href="https://www.techspot.com/news/103020-telegram-boss-throws-accusations-signal-claims-rival-has.html" target="_blank">founder</a>. Telegram is just fine for public groups and piracy tho, can't deny that.</p>
+
+    <h1>Table of contents</h1>
+<ul class="coolhover">
+	
+  <li><a href="#centralized">Centralized messengers</a></li>
+  <ul>
+
+    <li><a href="#signal">Signal</a></li>
+    <li><a href="#olvid">Olvid</a></li>
+    <li><a href="#threema">Threema</a></li>
+    <li><a href="#session">Session</a></li>
+    <li><a href="#wire">Wire</a></li>
+
+  
+    </ul>
+
+    <li><a href="#decentralized">Decentralized messengers</a></li>
+    <ul>
+      <li><a href="#matrix">Matrix</a></li>
+      <li><a href="#xmpp">XMPP</a></li>   
+      <li><a href="#simplex">SimpleX</a></li>
+ 
+      </ul>
+
+      <li><a href="#p2p">Peer to peer messengers</a></li>
+
+<ul>
+	<li><a href="#briar">Briar</a></li>
+	<li><a href="#cwtch">CWTCH</a></li>
+  
+  
+  <li><a href="#jami">Jami</a></li>
+</ul>
+</ul>
+
+<!--CENTRALIZED-->
+
+<h1 id="centralized">Centralized messengers</h1>
+<p>These messengers have a central server, controlled by the company behind it. This is not inherently bad, as it <b>can</b> (doesn't have to) provide higher speeds and more consistency in your experience.</p>
+
+<!--SIGNAL-->
+
+<h2 id="signal"><img src="Messengers/signal.png">Signal<img src="Messengers/signal.png"></h2>
+
+
+<p>The American classic everyone knows about. Signal is hosted on <a href="https://signal.org/blog/looking-back-on-the-front/" target="_blank">AWS</a> which I find strange, and due to their phone number requirement, they are <a href="https://signal.org/blog/signal-is-expensive/?ref=nogradient.com" target="_blank">wasting $6M every year</a>. This alone doesn't make Signal a bad messenger, but this article is my opinion and not an objective review. </p>
+
+<h3>Business model</h3>
+<p>The only way Signal makes money is via donations, as I've been able to find. If you know of some other way, contact me and I will add it.</p>
+<p>I must say I don't feel comfortable with donating to a service like this. I don't think Signal is sustainable.</p>
+<h3>Features</h3>
+<p> Signal is available for all platforms, with the need to first register with a phone number on your phone. After you do that, you can log into a PC client which will work without the need to stay connected to your phone.</p>
+<p>As far as the experience goes, there's not much to complain about. Signal can send, edit, delete and react to messages. Groups are supported as well. </p>
+
+<p>There is no multi-device support, as in, you can't use two phones with your signal account on each of them. But you can use a phone and a computer standalone.</p>
+<h3>Conclusion</h3>
+<p>If somebody wanted to talk to me over Signal, I would not have a problem. I would however not pick it as my primary messenger.</p>
+
+<br>
+<hr>
+<!--OLVID-->
+<h2 id="olvid"><img src="Messengers/olvid.png">Olvid<img src="Messengers/olvid.png"></h2>
+
+<p>This French messenger is also hosted on <a href="https://olvid.io/faq/server-and-open-source/" target="_blank">AWS</a>, similarly to Signal.</p>
+<h3>Features</h3>
+<p>It however does not require a phone number to sign up, and their desktop clients work standalone, meaning you don't need to first create an account on your phone, and then link it to the PC. You launch the PC app and it lets you create an account.</p>
+
+<img src="Messengers/olvid-1.png" class="imgmobile80">
+
+<img src="Messengers/olvid-2.png" class="imgmobile80">
+
+<p>If you want, you can also make use of their <a href="https://web.olvid.io/">web client</a> which needs your phone to stay connected.</p>
+<p>It's pretty feature-rich, and on top of everything Signal can do, there are several niche features, such as:</p>
+<img src="Messengers/olvid-read-once.jpg" class="imgmobile60">
+<p>Or how it makes both contacts verify before allowing them to talk to each other. This is done in order to be absolutely sure you are talking to the person you think you are talking to.</p>
+<img src="Messengers/olvid-verification-1.jpg" class="imgmobile60">
+
+<h3>Business model</h3>
+<p>With Signal I mentioned unsustainability, so how does Olvid hold up? Well, they have a business model, so that's good.</p>
+<img src="Messengers/olvid-pricing.jpg">
+<p>As you can see, they sell their solutions to enterprise users, which is how Olvid seems to make money. Locking multi-device functionality and calling behind a monthly subscription for regular users is a strange move tho. I can't imagine anyone to pay 60€ a year just to make full use of a messenger, when the others on this list are either fully free with all of their features, or require a one time payment.</p>
+
+<h3>Conclusion</h3>
+<p>I think this is a good choice if you just want to message people and not call. It's been <a href="https://olvid.io/faq/is-olvid-open-source/">audited</a> and is using Perfect Forward Secrecy, just like Signal, so no complaints there.</p>
+
+
+<br>
+<hr>
+<!--THREEMA-->
+<h2 id="threema"><img src="threema.jpg">Threema<img src="threema.jpg"></h2>
+<p>The service is based in Switzerland, which is where they also host their <a href="https://threema.ch/en/faq/server_location" target="_blank">servers</a>. No AWS here.</p> 
+
+<h3>Features</h3>
+<p>The app supports most features you would expect from a messenger, such as message editing, local deletion and deletion on the other person's device. You also get a very nice built-in image editor.</p>
+<img src="Messengers/threema-editing.webp" class="imgmobile80">
+<br>
+<img src="Messengers/threema-message-editing.webp" class="imgmobile40">
+
+<p>You also get location sharing and polls.</p>
+<img src="Messengers/threema-polls.jpg" class="imgmobile50">
+<br>
+<img src="Messengers/threema-polls-1.webp" class="imgmobile80">
+<br>
+
+
+<p>Unfortunately its PC support is not the greatest. All you get is a client that needs your phone connected at all times to operate. This sucks, but a <a href="https://threema.ch/en/download-md">new client</a> is in the works, so far only available for iphones. For me the reliability on of Threema is the most important part. When I send a message, it will arrive, and I can be sure of it.</p>
+<p>There is no multi-device support as of today. You can't use two phones with your Threema account on each of them.</p>
+
+<h3>Business model</h3>
+<p>Threema's business model is selling <a href="https://threema.ch/en/work/business-messenger" target="_blank">messaging solutions</a> to their corporate customers, and the app costing 5€.</p>
+<p>Threema is purchasable on Android and iOS, with the option of purchasing a license key from their website and activating the .apk version. There even is a special version called <a href="https://threema.ch/en/faq/libre_installation">Threema Libre</a> with doesn't depend on any proprietary dependencies, not even google's notification service.</p>
+
+
+
+
+<h3>Conclusion</h3>
+
+<p>Despite its disadvantages, this is by far my favourite centralized messenger. If you decide to give it a try, feel free to visit <a href="https://threemagroups.xyz">threemagroups.xyz</a>, a directory of all the known groups, so that you can chat with other people.</p>
+<br>
+<hr>
+
+<!--SESSION-->
+
+<h2 id="session"><img src="Messengers/session.png">Session<img src="Messengers/session.png"></h2>
+<p>An Australian messenger, whose main feature is routing your messages via three randomly chosen nodes across the globe, just like with TOR. The slight issue is, that without the central Oxen server, you can't send any files at all. And therefore I can't classify it as a decentralized messaging service. <a href="http://arxiv.org/pdf/2002.04609">Source.</a></p> 
+<img src="Messengers/session-files.png">
+<p>It's a fork of Signal, but it doesn't support <a href="https://getsession.org/faq#session-pfs">Perfect Forward Secrecy</a>, which means the same key will be used for every message inside of a chat. The service is also very slow most of the time.</p>
+
+<h3>Features</h3>
+
+<p>I will however give them credit for their PC apps, which work standalone. You register on a computer and can use it with no ties to your phone. You can also log into your "account" on another phone and receive your messages. So as far as multi-device functionality is concerned, this is a big benefit, and I will give them credit for it.</p>
+<p>Also, the registration process consists of just opening the app and generating an ID, and saving your seed for later, if you plan to use it again. Even simpler than Signal, where you just enter your phone number and enter your PIN.</p>
+
+<img src="Messengers/session-seed.webp" class="imgmobile80">
+
+
+<p>There's also no message editing, but you can delete messages.</p>
+
+<img src="Messengers/session-edit.jpg" class="imgmobile35">
+
+<h3>Conclusion</h3>
+<p>I've used Session several times in the past, once even for a few weeks with a friend. The experience wasn't exactly bad, but also nothing to brag about. I would gladly chat with someone over Session rather than a random normie messenger like Discord/WhatsApp, but if I had to pick, I wouldn't use it on daily basis. If you want the anonymity and decentralization, go for <a href="#simplex">SimpleX</a>.</p>
+
+<br>
+<hr>
+<!--WIRE-->
+<h2 id="wire"><img src="Messengers/wire.png">Wire<img src="Messengers/wire.png"></h2>
+<p>I know nothing about this messenger, but when I went to their website, I had to <b>find</b> the download button. And when I finally found it, I saw that the F-droid version has not been updated in 2 years, despite being listed.</p>
+<img src="Messengers/wire-sus.png" class="imgmobile80">
+<br>
+<img src="Messengers/wire-fdroid.png" class="imgmobile80">
+<h3>Conclusion</h3>
+
+<p>It also seems that nearly no one is using this (500 000 users), at least according to this <a href="https://restoreprivacy.com/secure-encrypted-messaging-apps/wire/">article</a>. It might be true, as I have never met a Wire user in my life. I would avoid this as my messenger.</p>
+
+
+
+<!--DECENTRALIZED-->
+<h1 id="decentralized">Decentralized messengers</h1>
+<p>This type of messengers has no central server, and anyone can host their own. The disadvantage can be slower speeds, and less reliability and consistency.</p>
+<!--Matrix-->
+<h2 id="matrix"><img src="element.svg">Matrix<img src="element.svg"></h2>
+<p>I have been using matrix for years, and finding a good homeserver is pure pain. Each sucks in its own way. They were either slow, refused to sync messages between devices, or were offline a lot of the time. But admittedly when I found a good homeserver, the experience has been manageable.</p>
+<p>Matrix works similarly to email, in that you message accounts located on specific homeservers. Which is why your account name is similar to that of an email. <code>@tsugu:thishorsie.rocks</code> in my case.</p>
+
+<h3>Clients</h3>
+<p>If you want to get started with Matrix, you will have to download one of the clients. I will save you the trouble - everything is broken except for Element (all platforms) and Nheko (PC).</p>
+<p>Here is the <a href="https://matrix.org/ecosystem/clients/">official list</a> of known clients.</p>
+
+<h3>What I don't like</h3>
+
+<p>What I really don't like about Matrix is that every client you attempt to use assumes matrix.org as the default homeserver, which has resulted in a large part of Matrix users using it. If you have ever used Matrix, you will notice that the vast majority of people you meet have an account on there. This should change, otherwise the decentralization is a bit pointless.</p>
+<p>Also, in my experience, cross signing refuses to work correctly.</p>
+<img src="Messengers/matrix-cross-signing.png" class="imgmobile">
+<p>The purpose of it is to make sure that any new devices you log into can be trusted, and won't see your previous messages. A nice idea. But I've even experienced a device randomly becoming unverified. Why? Don't know, don't care. I stopped caring about it long time ago and I live with the fact that when I use Element on my PC, a red shield appears next to my name, telling others that his device is unverified.</p>
+
+<h3>Features</h3>
+<p>The matrix protocol supports basically everything you are used to. Message editing (when you try and edit a message on Android, the markdown symbols like * or _ will disappear. This is a known bug that's still not fixed.), deletion, replies, threads within chats, or even guilds like on Discord, which they call spaces. I would also like to say that joining groups can be a pain. Sometimes you will join instantly, sometimes it can take tens of seconds. It depends on how large the group is, and how performant the server it's hosted on is.</p>
+
+<img src="Messengers/matrix-spaces.jpg" class="imgmobile">
+
+<p>Homeservers usually store your files indefinitely. They are obviously encrypted, and if you back up your keyfiles, and cross signing happens to work for you, you should be able to have access to everything you've sent from any device. Just like on Discord.</p>
+
+
+<h3>Conclusion</h3>
+
+<p>In theory this would be a solid encrypted Discord/Slack alternative, but in reality I see it as a buggy, slow, and inconsistent mess. I used to be a big fan of matrix, but after years of dealing with non-sense, I can't say I'm one anymore. It is however using Perfect Forwards Secrecy in every chat, so at least amongst all of the problems, nobody will be reading your messages.</p>
+
+<br>
+<hr>
+<!--XMPP-->
+<h2 id="xmpp"><img src="Messengers/xmpp.png">XMPP<img src="Messengers/xmpp.png"></h2>
+<p>This is also a protocol, similar to Matrix. Anyone can host their own server (<a href="https://list.jabber.at/">or pick one that allows registrations</a>), and your account name looks exactly like an email address. You may have noticed that I'm using a single address as both an email, and an xmpp address.</p>
+
+<h3>Clients</h3>
+
+<p>For PC, there is <a href="https://gajim.org">Gajim</a> as a client, and for Android there's <a href="https://conversations.im">Conversations</a> Both work well.</p>
+<p>Here is the <a href="https://xmpp.org/software/">official list</a> of known clients.</p>
+<img src="Messengers/gajim.png" class="imgmobile80">
+
+<h3>Features</h3>
+
+<p>XMPP is older than Matrix, and it can be apparent in some areas. You for example cannot reply to images, and can only edit the last message you've sent. But compared to Matrix, my experience has been stellar. Any server you pick will work just fine, there is no annoying cross signing yelling at you to verify your device, and the message delivery is pretty fast.</p>
+<p>I would assume this is the case because XMPP server software is better optimized, as it had to perform well even in the 1999, when it was launched.</p>
+<p>Another notable difference is that most XMPP servers only retain your files and messages for a month, or less.</p>
+
+<h3>Conclusion</h3>
+
+<p>After my recent troubles with it I must conclude that it's a piece of shit just like Matrix but what else can I expect from a decentralized solution with no standardization. Security-wise XMPP is doing pretty good at least, thanks to <a href="https://en.wikipedia.org/wiki/OMEMO">OMEMO</a> present in most of the clients (including Gajim and Conversations)</p>
+
+<br>
+<hr>
+<!--SimpleX-->
+<h2 id="simplex"><img src="Messengers/simplex.png">SimpleX<img src="Messengers/simplex.png"></h2>
+<p>This one is a very recent project, started in 2020. SimpleX claims to be fully anonymous, with nothing identifying you whatsoever. I don't understand it enough to be able to tell you how it's possible. You can read about it on their <a href="https://simplex.chat">website</a>.</p>
+<p>Their network consists of easily <a href="https://simplex.chat/docs/server.html">hostable nodes</a> which unlike on Session, also temporarily store your files. There's no central server.</p>
+<p>As of the end of 2024, there's a second official <a href="https://simplex.chat/blog/20241210-simplex-network-v6-2-servers-by-flux-business-chats.html">node provider</a> you can choose, further adding to the decentralization of the platform.</p>
+
+
+<h3>Features</h3>
+<p>Since launch, SimpleX has achieved most of its goals, including having a standalone Desktop app. The mobile app has every feature you would expect from a messenger (editing, deletion, replying to messages), with the addition of Live Messages. Your contact will be able to see what you type in "real time". When I tested it, there was a 2-3 second delay, but I appreciate the idea.</p>
+
+<p>There is no multi-device support as of now (can't have the same profile on several phones/PCs), but you scan a QR code on the desktop client.</p>
+<img src="Messengers/simplex-desktop.png" class="imgmobile80">
+
+<p>And yes, just to be clear, the PC app is a standalone client. You can create a new account through it and use it on that PC. But it can also handle linking with the account on your phone.</p>
+
+<p>Compared to Threema, which uses a very similar solution, you cannot use both the phone and your PC at the same time. If you attempt to do so, SimpleX will tell you this:</p>
+
+
+<img src="Messengers/simplex-desktop-1.jpg" class="imgmobile40">
+
+<h3>Conclusion</h3>
+<p>I think this messenger is very promising, and definitely worth checking out. During my testing I have however noticed a bit of battery drain (foreshadowing for the next category of messengers), which will hopefully get optimized over time. Like I said, this project is only 4 years old, so there's plently of time to improve. As far as it's security goes, SimpleX <a href="https://simplex.chat/blog/20221108-simplex-chat-v4.2-security-audit-new-website.html">has been audited</a> and deemed safe.</p>
+
+
+
+
+
+
+<!--P2P-->
+<h1 id="p2p">Peer to peer messengers</h1>
+<p>This type of messengers utilizes no servers, and each client talks to others directly. A big disadvantage of this solution is that participants of the conversation have to be online, and in some cases I have experienced not being able to reach people in certain countries. That is to say, a big advantage is that with no servers, there is nothing that can go offline.</p>
+
+
+<h2 id="briar"><img src="Messengers/briar.png">Briar<img src="Messengers/briar.png"></h2>
+  <p>One of the most well known p2p messengers, highly trusted by protesters and anyone else with a threat model of "holy shit, the FBI is after me".</p>
+  <p>It's also <a href="https://briarproject.org/download-briar-desktop/">available for PC</a>, in a beta.</p>
+
+<h3>Features</h3>
+<p>Briar is primarly meant for protests, or for situations where you can't always access the internet. That's why it's main feature is being able to work over the same wifi network, or even via bluetooth.</p>
+<img src="Messengers/briar-wifi.webp" class="imgmobile60">
+
+<p>A notable feature is being able to share Briar's apk without  access the internet, or having the apk downloaded.</p>
+
+<img src="Messengers/briar-offline.jpg" class="imgmobile30">
+
+
+<p>Another cool thing is <a href="https://briarproject.org/download-briar-mailbox/">Briar Mailbox</a>, which lets you use another device as a... mailbox to store the messages you receive, even while your phone is offline. I can see this being useful in case you are going to a place with only occasional access to the internet. You could keep another phone running at home, with Mailbox installed.</p>
+
+<p>You can also delete the messages you've sent locally.</p>
+<img src="Messengers/briar-remove.jpg" class="imgmobile50">
+
+<p>There's not much in terms of chat features, which makes it not suitable as a messenger to be used amongst regular people, which it isn't</p>
+
+<h3>Conclusion</h3>
+<p>Great project that has helped people, and it might help you too if you ever get into a bad situation, or you decide to go on a protest. Just don't expect it to be a feature-rich messenger for daily chatting. I mean, you can't even move your profile to a new device, which is intended to encourage people to discard their profiles after use. But if you lose your phone or reinstall the app, your contacts will be gone.</p>
+
+
+
+    <br>
+    <hr>
+    <h2 id="cwtch"><img src="Messengers/cwtch.png">CWTCH<img src="Messengers/cwtch.png"></h2>
+    <p>This is very similar to Briar, except it can only connect via Tor. No same wifi or bluetooth communication. It's available for both mobile and PC.</p>
+
+    <h3>Features</h3>
+    <p>There's not a whole lot. Compared to Briar, you can freely migrate your profile from one device to another, and that's it. In order to create a group you need to start a server on your PC, and you can't even delete individual messages inside of a chat. Chats are set to delete every message once you log out, which can be changed to save message history. You can also reply to messages, create multiple profiles, and quickly switch between them.</p>
+    <img src="Messengers/cwtch-pc.png" class="imgmobile80">
+    <h3>Conclusion</h3>
+  <p>I don't see the point in using Cwtch since Briar exists, unless being able to move your profile around is something you necessarily need.</p>
+
+
+    <br>
+    <hr>
+    <h2 id="jami"><img src="Messengers/jami.png">Jami<img src="Messengers/jami.png"></h2>
+<p>This a clearnet p2p messenger, meaning it doesn't use Tor for its functionality. You connect straight to your contact.</p>
+
+<h3>Features</h3>
+
+<p>Fast delivery of messages, due to not relying on Tor. You can call, video call, <b>screenshare</b>, create groups (with no need for a server).</p>
+<p>Just like with Briar and Cwtch, all it takes to register is creating a local username.</p>
+
+<img src="Messengers/jami-screen.webp" class="imgmobile30">
+
+<p>A major disadvantage is being unable to clear a chat, or delete your contact's messages locally. The only way to clear anything is to remove your friend from your contacts, it seems.</p>
+
+
+<img src="Messengers/jami-ui.webp" class="imgmobile80">
+
+<h3>Conclusion</h3>
+
+<p>I think this messenger is not bad at all. The screensharing can be useful, the speed is good, and the conversations are protected by <a href="https://docs.jami.net/en_US/user/faq.html#what-protocol-does-jami-use-for-the-end-to-end-encryption">perfect forward secrecy</a>. Something neither Briar or Cwtch support, as far as I know. I have used Jami in the past, and the only complaint I have is with its multi-device support, which is not that reliable. One device will receive a message, and the other one won't. Happened to me several times.</p>
+
+
+
+
+
+
+
+</main>
+
+
+</body>
+
+</html>
